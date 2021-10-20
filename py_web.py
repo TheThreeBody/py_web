@@ -14,13 +14,18 @@ def response_douyu():
 
     args = request.args.get("roomNo")
     form = request.form.get('data')
+
+
     roomNo = args
     douyu = DouYu(roomNo)
     data = {
         "stream" : douyu.get_real_url()
     }
+    print("=========成功 生成 index.html================")
     return jsonify(data)
+#   return jsonify(args=args, form=form)
 
 
 if __name__ == '__main__':
     app.run()
+#     app.run(host="0.0.0.0", port=5800, debug=True)
