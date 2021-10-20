@@ -12,10 +12,10 @@ def root():
 @app.route('/douyu', methods=['get'])
 def response_douyu():
 
-    args = request.args.get("roomnum")
+    args = request.args.get("roomNo")
     form = request.form.get('data')
-    roomnum = args
-    douyu = DouYu(roomnum)
+    roomNo = args
+    douyu = DouYu(roomNo)
     data = {
         "stream" : douyu.get_real_url()
     }
