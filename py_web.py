@@ -5,6 +5,10 @@ from real_url.douyu import DouYu
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
+@app.route('/')
+def root():
+    return 'Hello Gunicorn'
+
 @app.route('/douyu', methods=['get'])
 def response_douyu():
 
