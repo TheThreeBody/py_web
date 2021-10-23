@@ -1,5 +1,7 @@
 from flask import Flask, jsonify
 from flask import request
+from flask_cors import cross_origin
+
 from real_url.douyu import DouYu
 
 app = Flask(__name__)
@@ -10,6 +12,7 @@ def root():
     return 'Hello Gunicorn'
 
 @app.route('/douyu', methods=['get'])
+@cross_origin()
 def response_douyu():
 
     args = request.args.get("roomNo")
