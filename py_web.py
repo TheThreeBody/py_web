@@ -59,7 +59,7 @@ def danmuQueue():
     url = request.args.get("link")
     damuQ = danmaku.DanmakuClient(url, q)
 
-@app.route('/danmu', methods=['get'])
+@app.route('/sukiya', methods=['get'])
 @cross_origin()
 def sukiya():
     link = request.args.get('link')
