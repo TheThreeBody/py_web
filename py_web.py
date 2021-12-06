@@ -7,6 +7,10 @@ from flask_cors import cross_origin
 
 from real_url.douyu import DouYu
 from real_url.bilibili import BiliBili
+from real_url.danmu import danmaku
+import asyncio
+
+from sukiya.sukiya import sukiya_coupon
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
@@ -46,6 +50,23 @@ def response_bilibili():
         "stream" : bilibili.get_real_url()
     }
     print("=========成功 生成 bilibili房间号================")
+    return jsonify(data)
+
+@app.route('/danmu', methods=['get'])
+@cross_origin()
+def danmuQueue():
+    q = asyncio.Queue()
+    url = request.args.get("link")
+    damuQ = danmaku.DanmakuClient(url, q)
+
+@app.route('/danmu', methods=['get'])
+@cross_origin()
+def sukiya():
+    link = request.args.get('link')
+    discountNo = sukiya_coupon(link)
+    data = {
+        "discountNo":discountNo
+    }
     return jsonify(data)
 
 if __name__ == '__main__':
