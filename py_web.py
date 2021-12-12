@@ -71,13 +71,14 @@ def danmuQueue():
     url = request.args.get("link")
     damuQ = danmaku.DanmakuClient(url, q)
 
-@app.route('/sukiya', methods=['post'])
+@app.route('/sukiya', methods=['get'])
 @cross_origin()
 def sukiya():
-    # print('values', request.args.lists())
-    # link = request.args.get('link')
-    form = request.form.get('data')
-    discountNo = sukiya_coupon(form)
+    # print('values', request.args.listvalues())
+    link = request.args.get('link')
+    # form = request.form.get('data')
+    print(link)
+    discountNo = sukiya_coupon(link)
     data = {
         "discountNo":discountNo
     }
