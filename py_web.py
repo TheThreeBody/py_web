@@ -2,7 +2,7 @@
 from flask import Flask, jsonify
 from flask import request
 # 全局应用
-from flask_cors import CORS
+#from flask_cors import CORS
 from flask_cors import cross_origin
 
 from real_url.douyu import DouYu
@@ -25,7 +25,7 @@ def root():
 def response_douyu():
 
     args = request.args.get("roomNo")
-    form = request.form.get('data')
+    # form = request.form.get('data')
 
 
     roomNo = args
@@ -79,6 +79,7 @@ def sukiya():
     # form = request.form.get('data')
     print(link)
     discountNo = sukiya_coupon(link)
+    print(discountNo)
     data = {
         "discountNo":discountNo
     }
