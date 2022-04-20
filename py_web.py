@@ -1,10 +1,11 @@
 # pip install flask flask-cors
 from flask import Flask, jsonify
 from flask import request
-# 全局应用
+# 全局应用 CORS
 #from flask_cors import CORS
 from flask_cors import cross_origin
 
+from real_url.exp.RoomException import RoomException
 from real_url.douyu import DouYu
 from real_url.bilibili import BiliBili
 from real_url.douyin import DouYin
@@ -90,3 +91,7 @@ if __name__ == '__main__':
     # 全局使用CORS跨域
     # CORS(app)
 #     app.run(host="0.0.0.0", port=5800, debug=True)
+
+
+# 测试地址：http://127.0.0.1:5000/douyu?roomNo=9999
+# 斗鱼直播：https://www.douyu.com/85894
