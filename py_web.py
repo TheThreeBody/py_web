@@ -12,7 +12,7 @@ from real_url.douyin import DouYin
 from real_url.danmu import danmaku
 import asyncio
 
-from sukiya.sukiya import sukiya_coupon
+# from sukiya.sukiya import sukiya_coupon
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
